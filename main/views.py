@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Todo
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 
 
 def index_view(request):

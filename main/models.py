@@ -1,7 +1,17 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+
+class User(AbstractUser):
+    email = None
+
+    class Meta:
+        verbose_name = 'User'
+        verbose_name_plural = 'Users'
 
 
 class Todo(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     status = models.IntegerField(default=0, choices=(
         (0, 'In Progress'),
