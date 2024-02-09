@@ -1,14 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
-
-
-class User(AbstractUser):
-    email = None
-
-    class Meta:
-        verbose_name = 'User'
-        verbose_name_plural = 'Users'
-
+from account.models import User
 
 class Todo(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
